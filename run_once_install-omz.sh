@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 # Install oh-my-zsh
 read "omz?Install omz? [Y/n] "
 if [[ $omz != (n|N) ]]
