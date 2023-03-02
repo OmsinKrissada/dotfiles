@@ -102,11 +102,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vi'
 fi
-# export EDITOR="/snap/bin/nvim"
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 
 
 echo "Loading p10k"
@@ -177,28 +172,29 @@ if command -v fnm &>/dev/null; then
 fi
 
 # yarn global
-# if command -v yarn &>/dev/null; then
-#     export PATH="$PATH:$(yarn global bin)"
-# fi
+if command -v yarn &>/dev/null; then
+    export PATH="$PATH:$(yarn global bin)"
+fi
 
 # pnpm
 echo 'Loading pnpm' 
 export PNPM_HOME="/home/omsin/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\'$
-
-
 # Self-defined functions
 mc() {
   su minecraft -c "screen $@"
 }
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
