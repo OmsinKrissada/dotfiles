@@ -156,7 +156,7 @@ fi
 
 
 
-# unsetopt sharehistory
+unsetopt sharehistory
 force_color_prompt=true
 
 
@@ -182,7 +182,7 @@ export PATH="$PNPM_HOME:$PATH"
 
 # Self-defined functions
 mc() {
-  su minecraft -c "screen $@"
+  su minecraft -c "tmux $@"
 }
 
 # set PATH so it includes user's private bin if it exists
