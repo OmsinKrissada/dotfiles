@@ -86,6 +86,7 @@ plugins=(
 )
 
 echo Loading omz
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -164,11 +165,11 @@ force_color_prompt=true
 bindkey '^H' backward-kill-word
 
 # fnm
-echo Loading fnm
-export PATH=/home/omsin/.fnm:$PATH
-if command -v fnm &>/dev/null; then
-    eval "`fnm env`"
-fi
+# echo Loading fnm
+# export PATH=/home/omsin/.fnm:$PATH
+# if command -v fnm &>/dev/null; then
+#     eval "`fnm env`"
+# fi
 
 # yarn global
 if command -v yarn &>/dev/null; then
