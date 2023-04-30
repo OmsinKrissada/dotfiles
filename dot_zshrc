@@ -181,6 +181,11 @@ echo 'Loading pnpm'
 export PNPM_HOME="/home/omsin/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
+# chezmoi
+if command -v chezmoi &>/dev/null; then
+  eval "$(chezmoi completion zsh)"
+fi
+
 # Self-defined functions
 mc() {
   su minecraft -c "tmux $@"
